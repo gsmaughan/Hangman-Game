@@ -21,14 +21,14 @@ window.onload = function loaded(){
 
 	var array = [];
 	//var gotWord = findWord(arrayIndex);
-
+	var gotWord;
 
 	//var dashedWord = "";
 
 	//replaceWithDashes(array);
 
 	document.onkeyup = function(event){
-		var gotWord;
+		
 		if (event.keyCode === 13){
 			gotWord = findWord(arrayIndex);
 			console.log(gotWord);
@@ -36,7 +36,8 @@ window.onload = function loaded(){
 		}
 		
 		
-		document.onkeyup = function begin(event){
+
+		document.onkeyup = function (event){
 
 		var userGuess = event.key.toUpperCase();
 
@@ -50,6 +51,10 @@ window.onload = function loaded(){
 		//document.getElementById("button").addEventListener("click", event);
 		}//close else
 		}//close second onkeyup
+
+
+				
+			
 	}//close first onkey up
 
 
@@ -74,9 +79,10 @@ function findWord(arrayIndex){
 		return word;
 	}
 
-function replaceWithDashes(gotWord){  // THIS FUNCTION WORKS SUNDAY 12:00
+function replaceWithDashes(gotWord){  // THIS FUNCTION WORKS MONDAY 5:00
 	array = [];
-
+	//var guess = userGuess;
+	//console.log("Print word while in replaceWithDashes" + gotWord);
 	for(i= 0; i < gotWord.length; i++){
 		//dashedWord = dashedWord + "_ ";
 		array.push("_ ");
@@ -85,12 +91,15 @@ function replaceWithDashes(gotWord){  // THIS FUNCTION WORKS SUNDAY 12:00
 	var noCommas = array.join(" ");
 	middleDiv.innerHTML = noCommas;
 	//console.log(gotWord);
+
+	//replaceWithCharacter(userGuess, gotWord);
 }
 
 function replaceWithCharacter(userGuess, gotWord){
 		//console.log("replace with caharacter works");
 		//var guessesRemaining = 5;
-
+		console.log(array);
+		console.log(gotWord);
 		for (var i = 0; i < gotWord.length; i++){
 			if (gotWord[i] === userGuess){
 				array[i] = userGuess;
@@ -133,20 +142,10 @@ function replaceWithCharacter(userGuess, gotWord){
 		redDiv.innerHTML = "Guesses Remaining: " + guessesRemaining;
 		}//end else
 
-		if (guessesRemaining == 0){
-			losses++;
-			var udpateLosses = document.getElementById("losses");
-			udpateLosses.innerHTML = "Losses: " + losses;
-
-			var badJob = document.getElementById("red");
-			badJob.innerHTML = "The correct word was " + gotWord + ".  Click on 'Next Game' to continue.";
-			if(window.event.keyCode != 13) return false;
-
-			// var disableKey = document.getElementById("blue");
-			// disableKey.readOnly = true;
-	}
-
 		if (array.indexOf("_ ") == -1){
+				wins++;
+				var updateWins = document.getElementById("wins");
+				updateWins.innerHTML = "Wins: " + wins;
 
 				var goodJob = document.getElementById("red");
 				goodJob.innerHTML = "Good job!  Click on 'Next Game' to continue."
@@ -155,24 +154,51 @@ function replaceWithCharacter(userGuess, gotWord){
 
 				if(window.event.keyCode != 13) return false;
 				
-				wins++;
+				
 
-				var updateWins = document.getElementById("wins");
-				updateWins.innerHTML = "Wins: " + wins;
+				
 			}	
+
+		if (guessesRemaining == 0){
+			losses++;
+			var udpateLosses = document.getElementById("losses");
+			udpateLosses.innerHTML = "Losses: " + losses;
+
+			var badJob = document.getElementById("red");
+			badJob.innerHTML = "The correct word was " + gotWord + ".  Click on 'Next Game' to continue.";
+			//if(window.event.keyCode != 13) return false;
+
+			// var disableKey = document.getElementById("blue");
+			// disableKey.readOnly = true;
+	}
+
+		
 
 		
 	}//end replace with character
-document.getElementById("button").onclick = function() {next()}
-function next(){
-	lettersGuessed = [];
-	guessesRemaining = 5;
-	arrayIndex++;
-	array = [];
+		document.getElementById("button").onclick = function() {next()}
+		function next(){
 
-	begin();
+					lettersGuessed = [];
+					var clearLettersGuessed = document.getElementById("bottom");
+					clearLettersGuessed.innerHTML = lettersGuessed;
 
-}
+					guessesRemaining = 5;
+					arrayIndex++;
+					array = [];
+					//console.log("click worked")
+					//console.log(arrayIndex);
+
+
+
+					var newWord = findWord(arrayIndex);
+					console.log(newWord);
+					gotWord = newWord;
+					replaceWithDashes(newWord);
+					console.log(array);
+					
+
+				}
 
 }//end window.onload
 
