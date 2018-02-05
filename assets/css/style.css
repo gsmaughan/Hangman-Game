@@ -1,0 +1,113 @@
+
+header{
+	padding: 20px;
+    margin-bottom: 20px;
+    color: white;
+    background: red;
+    text-align: center;
+    font-size: 40px;
+    font-style: bold;
+}
+/*#container{
+	background-color: brown;
+}*/
+body{
+	background-color: brown;
+	text-align: center;
+
+}
+
+#photo{
+	width: 200px;
+	height: 200px;
+	float left;
+	/*position: relative;*/
+}
+.container{
+	width: 30%;
+	height: 80%;
+	background-color: teal;
+	float: left;
+	margin: 50px;
+
+	/*margin: 10px, 10px, 10px, 10px;*/
+	padding: 15px;
+}
+img{
+	float: right;
+	float: bottom;
+	max-width: 100%
+}
+#floated{
+	width: 250px;
+	height: 325px;
+	background-color: white;
+}
+body{
+	padding: 25px;
+
+}
+
+#blue{
+	font-size: 25px;
+	color: white;
+	background-color: blue;
+	padding: 50px;
+	height: 600px;
+	width: 40%;
+	float: right;
+	border: 25px;
+	margin: 50px;
+}
+#top{
+	background-color: yellow;
+	height: 50px;
+	padding: 15px;
+	color: black;
+}
+
+#middle{
+	background-color: green;
+	height: 50px;
+	padding: 15px;
+	font-size: 60px;
+	line-height: 25px;
+}
+
+#bottom{
+	background-color: black;
+	height: 50px;
+	padding: 15px;
+}
+
+#red{
+	background-color: red;
+	height: 50px;
+	padding: 15px;
+}
+
+#record{
+	background-color: white;
+	height: 50px;
+	padding: 15px;
+
+}
+
+#wins{
+	background-color: orange;
+	height: 80%;
+	width: 40%;
+	float: left;
+}
+
+#losses{
+	background-color: grey;
+	height: 80%;
+	width: 40%;
+	float: right;
+}
+
+}
+.col-lg-6{
+	font: black;
+}
