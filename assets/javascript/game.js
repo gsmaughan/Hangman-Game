@@ -15,7 +15,7 @@ window.onload = function loaded(){
 
 	var losses = 0;
 
-	var guessesRemaining = 5;
+	var guessesRemaining = 4;
 	
 	var arrayIndex = 0;
 
@@ -122,7 +122,7 @@ function replaceWithCharacter(userGuess, gotWord){
 
 				var bottomDiv = document.getElementById("bottom"); 
 				lettersGuessed.push(userGuess);
-				bottomDiv.innerHTML = lettersGuessed;
+				bottomDiv.innerHTML = "Chosen Letters: " + lettersGuessed;
 			}//end else
 			
 		}//end if
@@ -136,7 +136,7 @@ function replaceWithCharacter(userGuess, gotWord){
 		
 		var bottomDiv = document.getElementById("bottom");
 		//bottomDiv.innerHTML += userGuess + " ";
-		bottomDiv.innerHTML = lettersGuessed;
+		bottomDiv.innerHTML = "Chosen Letters: " + lettersGuessed;
 
 		var redDiv = document.getElementById("red");
 		redDiv.innerHTML = "Guesses Remaining: " + guessesRemaining;
@@ -181,7 +181,7 @@ function replaceWithCharacter(userGuess, gotWord){
 
 					lettersGuessed = [];
 					var clearLettersGuessed = document.getElementById("bottom");
-					clearLettersGuessed.innerHTML = lettersGuessed;
+					clearLettersGuessed.innerHTML = "Chosen Letters: " + lettersGuessed;
 
 					guessesRemaining = 5;
 					arrayIndex++;
@@ -189,13 +189,17 @@ function replaceWithCharacter(userGuess, gotWord){
 					//console.log("click worked")
 					//console.log(arrayIndex);
 
-
+					var redDiv = document.getElementById("red");
+					redDiv.innerHTML = "Guesses Remaining: " + guessesRemaining;
 
 					var newWord = findWord(arrayIndex);
 					console.log(newWord);
 					gotWord = newWord;
 					replaceWithDashes(newWord);
 					console.log(array);
+
+					var blackDiv = document.getElementById("bottom");
+					blackDiv.innerHTML = "Chosen Letters: " + lettersGuessed;
 					
 
 				}

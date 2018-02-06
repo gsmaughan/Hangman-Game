@@ -2,9 +2,9 @@
 header{
 	padding: 20px;
     margin-bottom: 20px;
-    color: white;
-    background: red;
-    text-align: center;
+    color: #00008B;
+    background: #7FFFD4;
+    text-align: left;
     font-size: 40px;
     font-style: bold;
 }
@@ -12,15 +12,20 @@ header{
 	background-color: brown;
 }*/
 body{
-	background-color: brown;
+	/*background-color: brown;*/
 	text-align: center;
+	background-image: url("../images/ocean3.jpg");
+	height: 100%;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
 #photo{
 	width: 200px;
 	height: 200px;
-	float left;
+	float right;
 	/*position: relative;*/
 }
 .container{
@@ -32,16 +37,18 @@ body{
 
 	/*margin: 10px, 10px, 10px, 10px;*/
 	padding: 15px;
+	border-style: solid;
+	border-width: medium;
 }
 img{
 	float: right;
 	float: bottom;
 	max-width: 100%
 }
-#floated{
+/*#floated{
 	width: 250px;
 	height: 325px;
-	background-color: white;
+	background-color: white;*/
 }
 body{
 	padding: 25px;
@@ -50,64 +57,105 @@ body{
 
 #blue{
 	font-size: 25px;
-	color: white;
-	background-color: blue;
+	color: black;
+	background-color: #48D1CC;
 	padding: 50px;
-	height: 600px;
+	height: 40%;
 	width: 40%;
 	float: right;
 	border: 25px;
 	margin: 50px;
+	border-style: solid;
+	border-width: medium;
 }
 #top{
-	background-color: yellow;
+	background-color: #FFE4B5;
 	height: 50px;
 	padding: 15px;
 	color: black;
+	font-size: 50px;
+	border-style: solid;
+	border-width: thin;
 }
 
 #middle{
-	background-color: green;
+	background-color: #cac4ed;
 	height: 50px;
 	padding: 15px;
 	font-size: 60px;
 	line-height: 25px;
+	border-style: solid;
+	border-width: thin;
 }
 
 #bottom{
-	background-color: black;
-	height: 50px;
+	background-color: #cce698;
+	height: 25%;
 	padding: 15px;
+	font-size: 100%;
+	border-style: solid;
+	border-width: thin;
 }
 
 #red{
-	background-color: red;
+	background-color: #008080;
 	height: 50px;
 	padding: 15px;
+	font-size: 100%;
+	justify-content: center;
+	border-style: solid;
+	border-width: thin;
+	color: white;
+	border-color: black;
 }
 
 #record{
 	background-color: white;
 	height: 50px;
 	padding: 15px;
+	border-style: solid;
+	border-width: thin;
 
 }
 
 #wins{
-	background-color: orange;
-	height: 80%;
+	background-color: #0000b3;
+	height: 100%;
 	width: 40%;
 	float: left;
+	border-style: solid;
+	border-width: thin;
+	color: #FFDAB9;
+	
 }
 
 #losses{
-	background-color: grey;
-	height: 80%;
+	position: relative;
+	background-color: #0000b3;
+	height: 100%;
 	width: 40%;
 	float: right;
+	text-align: center;
+	vertical-align: middle;
+	border-style: solid;
+	border-width: thin;
+	color: #FFDAB9;
+
+
 }
 
 }
 .col-lg-6{
 	font: black;
 }
+
+#button{
+	width: 200px;
+	height: 60px;
+	margin: 20px;
+	font-size: 30px;
+	border-style: solid;
+	border-width: medium;
+	border-color: black;
+}
+
