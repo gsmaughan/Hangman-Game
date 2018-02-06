@@ -33,9 +33,11 @@ window.onload = function loaded(){
 			gotWord = findWord(arrayIndex);
 			console.log(gotWord);
 			replaceWithDashes(gotWord);
+
+
 		}
 		
-		
+
 
 		document.onkeyup = function (event){
 
@@ -204,7 +206,7 @@ function replaceWithCharacter(userGuess, gotWord){
 
 				}
 
-}//end window.onload
+}  //end window.onload
 
 
 

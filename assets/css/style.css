@@ -31,7 +31,7 @@ body{
 .container{
 	width: 30%;
 	height: 80%;
-	background-color: teal;
+	background-color: #66b3ff;
 	float: left;
 	margin: 50px;
 
@@ -157,5 +157,12 @@ body{
 	border-style: solid;
 	border-width: medium;
 	border-color: black;
+}
+#list{
+	font-size: 30px;
+}
+#knowledge{
+	font-size: 30px;
+	font-weight: bold;
 }
 
