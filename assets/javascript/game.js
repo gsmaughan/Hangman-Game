@@ -15,7 +15,7 @@ window.onload = function loaded(){
 
 	var losses = 0;
 
-	var guessesRemaining = 4;
+	var guessesRemaining = 5;
 	
 	var arrayIndex = 0;
 
@@ -33,6 +33,7 @@ window.onload = function loaded(){
 			gotWord = findWord(arrayIndex);
 			console.log(gotWord);
 			replaceWithDashes(gotWord);
+			guessesRemaining++;
 
 
 		}
@@ -92,9 +93,9 @@ function replaceWithDashes(gotWord){  // THIS FUNCTION WORKS MONDAY 5:00
 	var middleDiv = document.getElementById("middle");
 	var noCommas = array.join(" ");
 	middleDiv.innerHTML = noCommas;
-	//console.log(gotWord);
-
-	//replaceWithCharacter(userGuess, gotWord);
+	
+	var red = document.getElementById("red");
+	red.innerHTML = ("Guesses remaining: " + guessesRemaining);
 }
 
 function replaceWithCharacter(userGuess, gotWord){
@@ -130,19 +131,22 @@ function replaceWithCharacter(userGuess, gotWord){
 		}//end if
 
 		
-		if (gotWord.indexOf(userGuess, gotWord) == -1)        {
-		console.log(userGuess + " is NOT in this word.")
-		guessesRemaining--;
+		if (gotWord.indexOf(userGuess, gotWord) == -1)        { //if letter is not in the word
+			if(lettersGuessed.indexOf(userGuess, gotWord) != -1){ //if you have already guessed this letter
+				alert("You have already guessed " + userGuess);
+			}else{  //add to letters guessed if you have not guessed this letter
 
-		lettersGuessed.push(userGuess);
+				var bottomDiv = document.getElementById("bottom"); 
+				lettersGuessed.push(userGuess);
+				bottomDiv.innerHTML = "Chosen Letters: " + lettersGuessed;
+
+				guessesRemaining--;
+			}//end else
+
 		
-		var bottomDiv = document.getElementById("bottom");
-		//bottomDiv.innerHTML += userGuess + " ";
-		bottomDiv.innerHTML = "Chosen Letters: " + lettersGuessed;
-
 		var redDiv = document.getElementById("red");
 		redDiv.innerHTML = "Guesses Remaining: " + guessesRemaining;
-		}//end else
+		}//end if
 
 		if (array.indexOf("_ ") == -1){
 				wins++;
