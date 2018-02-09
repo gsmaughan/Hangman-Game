@@ -20,20 +20,18 @@ window.onload = function loaded(){
 	var arrayIndex = 0;
 
 	var array = [];
-	//var gotWord = findWord(arrayIndex);
+	
 	var gotWord;
 
-	//var dashedWord = "";
-
-	//replaceWithDashes(array);
+	
 
 	document.onkeyup = function(event){
 		
 		if (event.keyCode === 13){
 			gotWord = findWord(arrayIndex);
-			console.log(gotWord);
+			// console.log(gotWord);
 			replaceWithDashes(gotWord);
-			guessesRemaining++;
+			guessesRemaining;
 
 
 		}
@@ -51,7 +49,7 @@ window.onload = function loaded(){
 
  		replaceWithCharacter(userGuess, gotWord);
 
-		//document.getElementById("button").addEventListener("click", event);
+		
 		}//close else
 		}//close second onkeyup
 
@@ -84,8 +82,7 @@ function findWord(arrayIndex){
 
 function replaceWithDashes(gotWord){  // THIS FUNCTION WORKS MONDAY 5:00
 	array = [];
-	//var guess = userGuess;
-	//console.log("Print word while in replaceWithDashes" + gotWord);
+	
 	for(i= 0; i < gotWord.length; i++){
 		//dashedWord = dashedWord + "_ ";
 		array.push("_ ");
@@ -94,15 +91,11 @@ function replaceWithDashes(gotWord){  // THIS FUNCTION WORKS MONDAY 5:00
 	var noCommas = array.join(" ");
 	middleDiv.innerHTML = noCommas;
 	
-	var red = document.getElementById("red");
-	red.innerHTML = ("Guesses remaining: " + guessesRemaining);
+	
 }
 
 function replaceWithCharacter(userGuess, gotWord){
-		//console.log("replace with caharacter works");
-		//var guessesRemaining = 5;
-		console.log(array);
-		console.log(gotWord);
+		;
 		for (var i = 0; i < gotWord.length; i++){
 			if (gotWord[i] === userGuess){
 				array[i] = userGuess;
@@ -118,7 +111,7 @@ function replaceWithCharacter(userGuess, gotWord){
 
 
 		if (gotWord.indexOf(userGuess, gotWord) > -1){ //if letter is in the word
-		//console.log(userGuess + " is in the word!");
+		
 			if(lettersGuessed.indexOf(userGuess, gotWord) != -1){ //if you have already guessed this letter
 				alert("You have already guessed " + userGuess);
 			}else{  //add to letters guessed if you have not guessed this letter
@@ -132,15 +125,21 @@ function replaceWithCharacter(userGuess, gotWord){
 
 		
 		if (gotWord.indexOf(userGuess, gotWord) == -1)        { //if letter is not in the word
+
 			if(lettersGuessed.indexOf(userGuess, gotWord) != -1){ //if you have already guessed this letter
 				alert("You have already guessed " + userGuess);
-			}else{  //add to letters guessed if you have not guessed this letter
+			}
+			else {  
+				console.log("testing line 137");
+				var redDiv = document.getElementById("red");
+					redDiv.innerHTML = "Guesses Remaining: " + guessesRemaining;
 
 				var bottomDiv = document.getElementById("bottom"); 
 				lettersGuessed.push(userGuess);
 				bottomDiv.innerHTML = "Chosen Letters: " + lettersGuessed;
+				guessesMinus();
+				console.log("guesses minus fired");
 
-				guessesRemaining--;
 			}//end else
 
 		
@@ -155,13 +154,8 @@ function replaceWithCharacter(userGuess, gotWord){
 
 				var goodJob = document.getElementById("red");
 				goodJob.innerHTML = "Good job!  Click on 'Next Game' to continue."
-				
-
 
 				if(window.event.keyCode != 13) return false;
-				
-				
-
 				
 			}	
 
@@ -172,10 +166,7 @@ function replaceWithCharacter(userGuess, gotWord){
 
 			var badJob = document.getElementById("red");
 			badJob.innerHTML = "The correct word was " + gotWord + ".  Click on 'Next Game' to continue.";
-			//if(window.event.keyCode != 13) return false;
-
-			// var disableKey = document.getElementById("blue");
-			// disableKey.readOnly = true;
+			
 	}
 
 		
@@ -192,23 +183,29 @@ function replaceWithCharacter(userGuess, gotWord){
 					guessesRemaining = 5;
 					arrayIndex++;
 					array = [];
-					//console.log("click worked")
-					//console.log(arrayIndex);
 
 					var redDiv = document.getElementById("red");
 					redDiv.innerHTML = "Guesses Remaining: " + guessesRemaining;
 
 					var newWord = findWord(arrayIndex);
-					console.log(newWord);
+					// console.log(newWord);
 					gotWord = newWord;
 					replaceWithDashes(newWord);
-					console.log(array);
+					// console.log(array);
 
 					var blackDiv = document.getElementById("bottom");
 					blackDiv.innerHTML = "Chosen Letters: " + lettersGuessed;
 					
 
 				}
+
+	function guessesMinus(){
+		guessesRemaining--;
+		var redDiv = document.getElementById("red");
+			redDiv.innerHTML = "Guesses Remaining: " + guessesRemaining;
+			console.log(guessesRemaining);
+
+	}				
 
 }  //end window.onload
 
